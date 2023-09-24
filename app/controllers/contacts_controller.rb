@@ -7,6 +7,7 @@ class ContactsController < ApplicationController
   end
 
   def show
+    
   end
 
   def new

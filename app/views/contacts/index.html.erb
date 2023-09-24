@@ -11,9 +11,30 @@
         <h2 class="text-xl font-semibold mb-2" x-text="contact.name"></h2>
         <div class="text-gray-600">
           <p>Email: <span x-text="contact.email"></span></p>
-          <p>Birthday: <span x-text="new Date(contact.birthday).toLocaleDateString()"></span></p>
+          <p>Birthday: <span x-text="formatDate(contact.birthday)"></span></p>
+
         </div>
       </li>
     </template>
   </ul>
 </div>
+
+
+<script>
+  function formatDate(dateString) {
+    const dateParts = dateString.split('-');
+    const year = dateParts[0];
+    const month = getMonthName(parseInt(dateParts[1], 10));
+    const day = dateParts[2];
+    return `${month} ${day}, ${year}`;
+  }
+
+  function getMonthName(monthNumber) {
+    const monthNames = [
+      'January', 'February', 'March', 'April',
+      'May', 'June', 'July', 'August',
+      'September', 'October', 'November', 'December'
+    ];
+    return monthNames[monthNumber - 1];
+  }
+</script>
