@@ -4,17 +4,17 @@
   <%= form_for(@contact, html: { class: "grid grid-cols-2 gap-4" }) do |f| %>
     <div class="mb-4">
       <%= f.label :name, class: "block text-sm font-medium text-gray-700" %>
-      <%= f.text_field :name, class: "form-input mt-1 block w-full" %>
+      <%= f.text_field :name, class: "form-input mt-1 block w-full", required: true %>
     </div>
 
     <div class="mb-4">
       <%= f.label :email, class: "block text-sm font-medium text-gray-700" %>
-      <%= f.email_field :email, class: "form-input mt-1 block w-full" %>
+      <%= f.email_field :email, class: "form-input mt-1 block w-full", required: true %>
     </div>
 
     <div class="mb-4">
       <%= f.label :birthday, class: "block text-sm font-medium text-gray-700" %>
-      <%= f.date_field :birthday, class: "form-input mt-1 block w-full" %>
+      <%= f.date_field :birthday, class: "form-input mt-1 block w-full", required: true %>
     </div>
 
     <div class="col-span-2">
