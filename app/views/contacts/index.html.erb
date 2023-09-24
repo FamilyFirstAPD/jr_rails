@@ -1,0 +1,19 @@
+<div class="container mx-auto py-10" x-data="{ searchTerm: '', contacts: <%= @contacts.to_json %> }">
+  <a href="/" class="text-indigo-600 hover:underline text-sm">&larr; Return Home</a> 
+  <h1 class="text-3xl font-semibold mb-6">Contacts</h1>
+  
+  <label for="searchName" class="text-gray-600">Search by Name:</label>
+  <input type="text" id="searchName" x-model="searchTerm" class="block w-full mt-2 p-2 border border-gray-300 rounded-lg" placeholder="Enter name...">
+  
+  <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <template x-for="contact in contacts">
+      <li class="bg-white p-4 rounded-lg shadow-md" x-show="searchTerm === '' || contact.name.toLowerCase().includes(searchTerm.toLowerCase())">
+        <h2 class="text-xl font-semibold mb-2" x-text="contact.name"></h2>
+        <div class="text-gray-600">
+          <p>Email: <span x-text="contact.email"></span></p>
+          <p>Birthday: <span x-text="new Date(contact.birthday).toLocaleDateString()"></span></p>
+        </div>
+      </li>
+    </template>
+  </ul>
+</div>

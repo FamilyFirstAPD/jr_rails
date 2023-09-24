@@ -40,3 +40,5 @@ vendor/ruby
 .env
 
 /config/credentials/staging.key
+
+db/development.sqlite3
